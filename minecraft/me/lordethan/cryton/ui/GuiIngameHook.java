@@ -3,6 +3,7 @@ package me.lordethan.cryton.ui;
 import java.awt.Color;
 
 import me.lordethan.cryton.Cryton;
+import me.lordethan.cryton.module.Category;
 import me.lordethan.cryton.module.Module;
 import me.lordethan.cryton.utils.Wrapper;
 import net.minecraft.client.Minecraft;
@@ -20,6 +21,7 @@ public class GuiIngameHook extends GuiIngame{
 		
 		Wrapper.fr.drawString(Cryton.getClient_Name() + " Version:" + Cryton.getClient_Vesion(), 1, 1, 0xffffffff);
 		renderArrayList();
+		Cryton.theClient.getGuiManager().renderPinned();
 	}
 	
 	private void renderArrayList(){
@@ -27,7 +29,7 @@ public class GuiIngameHook extends GuiIngame{
 		for(Module m : Cryton.theClient.moduleManager.activeModules){
 			m.onRender();
 			
-			if(m.getState()){
+			if(m.getState() && !m.isCategory(Category.GUI)){
 				Wrapper.fr.drawString(m.getName(), 2, yCount, 0x00ff7f);
 				yCount +=10;
 			}

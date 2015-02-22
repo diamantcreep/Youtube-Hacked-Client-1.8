@@ -1,7 +1,10 @@
 package me.lordethan.cryton;
 
+import me.lordethan.cryton.managers.GuiManager;
 import me.lordethan.cryton.module.ModuleManager;
 
+import org.darkstorm.minecraft.gui.theme.simple.SimpleTheme;
+import org.darkstorm.minecraft.gui.util.GuiManagerDisplayScreen;
 import org.lwjgl.opengl.Display;
 
 public class Cryton {
@@ -12,10 +15,29 @@ public class Cryton {
 	public static final Cryton theClient = new Cryton();
 
 	public static ModuleManager moduleManager;
+	
+	private GuiManagerDisplayScreen gui;
+	private GuiManager guiManager;
 
 	public static void StartClient() {
 		moduleManager = new ModuleManager();
 		Display.setTitle(getClient_Name() + " (rel-" + getClient_Vesion() + ")");
+	}
+	
+	public GuiManager getGuiManager(){
+		if(guiManager == null){
+			guiManager = new GuiManager();
+			guiManager.setTheme(new SimpleTheme());
+			guiManager.setup();
+		}
+		return guiManager;
+	}
+	
+	public GuiManagerDisplayScreen getGui(){
+		if(gui == null){
+			gui = new GuiManagerDisplayScreen(getGuiManager());
+		}
+		return gui;
 	}
 
 	public static String getClient_Name() {
@@ -33,5 +55,7 @@ public class Cryton {
 	public static void setClient_Vesion(double client_Vesion) {
 		Client_Vesion = client_Vesion;
 	}
+	
+	
 
 }

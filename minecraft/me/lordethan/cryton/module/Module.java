@@ -59,4 +59,10 @@ public class Module {
 	public void onRender() {
 	}
 
+	public final boolean isCategory(Category s) {
+		if (s == category)
+			return true;
+		return false;
+	}
+
 }
