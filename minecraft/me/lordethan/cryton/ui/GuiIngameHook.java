@@ -19,7 +19,7 @@ public class GuiIngameHook extends GuiIngame{
 	public void func_175180_a(float p_175180_1_){
 		super.func_175180_a(p_175180_1_);
 		
-		Wrapper.fr.drawString(Cryton.getClient_Name() + " Version:" + Cryton.getClient_Vesion(), 1, 1, 0xffffffff);
+		Wrapper.fu_default.drawString(Cryton.getClient_Name() + " Version:" + Cryton.getClient_Vesion(), 1, 1, 0xffffffff);
 		renderArrayList();
 		Cryton.theClient.getGuiManager().renderPinned();
 	}
