@@ -3,11 +3,17 @@ package net.minecraft.client.gui;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+
+import me.lordethan.cryton.ui.GuiIngameHook;
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -220,6 +226,17 @@ public class GuiIngame extends Gui
         {
             this.func_175185_b(var2);
         }
+        
+        //TODO: Cryton
+        if (!this.mc.gameSettings.showDebugInfo)
+        {
+        	GL11.glPushMatrix();
+        		GuiIngameHook.StartHud();
+        	GL11.glPopMatrix();
+        }else {
+        	
+        }
+        
 
         if (this.mc.gameSettings.showDebugInfo)
         {

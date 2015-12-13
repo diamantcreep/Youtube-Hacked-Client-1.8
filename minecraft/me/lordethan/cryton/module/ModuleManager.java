@@ -19,7 +19,6 @@ public class ModuleManager {
 		this.activeModules.add(new TracerMobs());
 		this.activeModules.add(new ESPPlayer());
 		this.activeModules.add(new ESPMobs());
-		this.activeModules.add(new Step());
 		this.activeModules.add(new Gui());
 	}
 

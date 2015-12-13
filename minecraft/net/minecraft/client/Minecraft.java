@@ -558,7 +558,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.effectRenderer = new EffectRenderer(this.theWorld, this.renderEngine);
         this.checkGLError("Post startup");
         //TODO:Cryton
-        this.ingameGUI = new GuiIngameHook(this);
+        this.ingameGUI = new GuiIngame(this);
         //END
 
         if (this.serverName != null)
