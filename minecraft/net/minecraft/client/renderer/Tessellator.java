@@ -6,7 +6,7 @@ public class Tessellator
     private WorldVertexBufferUploader field_178182_b = new WorldVertexBufferUploader();
 
     /** The static instance of the Tessellator. */
-    private static final Tessellator instance = new Tessellator(2097152);
+    public static final Tessellator instance = new Tessellator(2097152);
     private static final String __OBFID = "CL_00000960";
 
     public static Tessellator getInstance()

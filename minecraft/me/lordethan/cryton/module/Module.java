@@ -1,5 +1,7 @@
 package me.lordethan.cryton.module;
 
+import net.minecraft.client.Minecraft;
+
 public class Module {
 
 	private String name;
@@ -7,9 +9,17 @@ public class Module {
 	private Category category;
 	private boolean isEnabled;
 
+	public static Minecraft mc = Minecraft.getMinecraft();
+
 	public Module(String name, int bind, Category category) {
 		this.name = name;
 		this.bind = bind;
+		this.category = category;
+	}
+	
+	public Module(String name ,Category category) {
+		this.name = name;
+		this.bind = 0;
 		this.category = category;
 	}
 
@@ -58,6 +68,7 @@ public class Module {
 
 	public void onRender() {
 	}
+	
 
 	public final boolean isCategory(Category s) {
 		if (s == category)

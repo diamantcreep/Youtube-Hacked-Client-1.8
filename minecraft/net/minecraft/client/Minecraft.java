@@ -218,9 +218,9 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
     /** Instance of CrashReport. */
     private CrashReport crashReporter;
-    public int displayWidth;
-    public int displayHeight;
-    private Timer timer = new Timer(20.0F);
+    public static int displayWidth;
+    public static int displayHeight;
+    public Timer timer = new Timer(20.0F);
 
     /** Instance of PlayerUsageSnooper. */
     private PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("client", this, MinecraftServer.getCurrentTimeMillis());
@@ -268,7 +268,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     public MovingObjectPosition objectMouseOver;
 
     /** The game settings that currently hold effect. */
-    public GameSettings gameSettings;
+    public static GameSettings gameSettings;
 
     /** Mouse helper instance. */
     public MouseHelper mouseHelper;

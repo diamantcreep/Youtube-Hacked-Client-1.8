@@ -1,6 +1,10 @@
 package net.minecraft.client.renderer;
 
 import com.google.gson.JsonSyntaxException;
+
+import me.lordethan.cryton.Cryton;
+import me.lordethan.cryton.module.Module;
+
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.FloatBuffer;
@@ -1614,6 +1618,13 @@ public class EntityRenderer implements IResourceManagerReloadListener
         }
 
         this.mc.mcProfiler.endStartSection("hand");
+        
+        //TODO:Cryton
+    	for(Module m : Cryton.theClient.moduleManager.activeModules){
+    			m.onRender();
+    	}
+    	//TODO:END
+        
         boolean renderFirstPersonHand = Reflector.callBoolean(Reflector.ForgeHooksClient_renderFirstPersonHand, new Object[] {this.mc.renderGlobal, Float.valueOf(partialTicks), Integer.valueOf(pass)});
 
         if (!renderFirstPersonHand)
@@ -1622,6 +1633,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             this.renderHand(partialTicks, pass);
             this.func_175067_i(partialTicks);
         }
+        
     }
 
     private void func_180437_a(RenderGlobal p_180437_1_, float partialTicks, int pass)
