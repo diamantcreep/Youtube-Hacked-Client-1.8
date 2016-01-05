@@ -10,7 +10,7 @@ import org.lwjgl.opengl.Display;
 public class Cryton {
 
 	private static String Client_Name = "Cryton";
-	private static double Client_Vesion = 1.0;
+	private static double Client_Version = 1.0;
 
 	public static final Cryton theClient = new Cryton();
 
@@ -21,7 +21,7 @@ public class Cryton {
 
 	public static void StartClient() {
 		moduleManager = new ModuleManager();
-		Display.setTitle(getClient_Name() + " (rel-" + getClient_Vesion() + ")");
+		Display.setTitle(getClient_Name() + " (rel-" + getClient_Version() + ")");
 	}
 	
 	public GuiManager getGuiManager(){
@@ -48,12 +48,12 @@ public class Cryton {
 		Client_Name = client_Name;
 	}
 
-	public static double getClient_Vesion() {
-		return Client_Vesion;
+	public static double getClient_Version() {
+		return Client_Version;
 	}
 
-	public static void setClient_Vesion(double client_Vesion) {
-		Client_Vesion = client_Vesion;
+	public static void setClient_Version(double client_Version) {
+		Client_Vesion = client_Version;
 	}
 	
 	
